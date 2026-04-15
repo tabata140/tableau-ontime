@@ -7,7 +7,7 @@
     <author name="TabataEtsuro" email="tabata.etsuro@gmail.com" organization="Tableau On Time" website="https://tabata2026.netlify.app"/>
     <min-api-version>1.4</min-api-version>
     <source-location>
-      <url>https://tabata2026.netlify.app/extension.html</url>
+      <url>https://tabata140.github.io/tableau-ontime/extension.html</url>
     </source-location>
     <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QMRAQwSbXrdqAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAKklEQVQ4y2NgYGD4z0A6YBx1gAENAAIAAP//AwAI/AL+hc2rNAAAAABJRU5ErkJggg==</icon>
     <permissions>
