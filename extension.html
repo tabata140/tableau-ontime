@@ -18,11 +18,11 @@ firebase.initializeApp({
 const db = firebase.database();
 
 const slots = [
-  { lat: "User1_Lat", lon: "User1_Lon", name: "User1_Name" },
-  { lat: "User2_Lat", lon: "User2_Lon", name: "User2_Name" },
-  { lat: "User3_Lat", lon: "User3_Lon", name: "User3_Name" },
-  { lat: "User4_Lat", lon: "User4_Lon", name: "User4_Name" },
-  { lat: "User5_Lat", lon: "User5_Lon", name: "User5_Name" },
+  { lat: "User1_Lat", lon: "User1_Lon", name: "User1_Name", time: "User1_Time" },
+  { lat: "User2_Lat", lon: "User2_Lon", name: "User2_Name", time: "User2_Time" },
+  { lat: "User3_Lat", lon: "User3_Lon", name: "User3_Name", time: "User3_Time" },
+  { lat: "User4_Lat", lon: "User4_Lon", name: "User4_Name", time: "User4_Time" },
+  { lat: "User5_Lat", lon: "User5_Lon", name: "User5_Name", time: "User5_Time" },
 ];
 
 let pendingUsers = null;
@@ -33,9 +33,11 @@ async function resetSlot(params, slotIndex) {
   const latParam = params.find(p => p.name === slot.lat);
   const lonParam = params.find(p => p.name === slot.lon);
   const nameParam = params.find(p => p.name === slot.name);
+    const timeParam = params.find(p => p.name === slot.time);
   if (latParam) await latParam.changeValueAsync(0);
   if (lonParam) await lonParam.changeValueAsync(0);
   if (nameParam) await nameParam.changeValueAsync("");
+  if (timeParam) await timeParam.changeValueAsync("");
 }
 
 async function updateTableau(users, dashboard) {
@@ -62,11 +64,13 @@ async function updateTableau(users, dashboard) {
     const latParam = params.find(p => p.name === slot.lat);
     const lonParam = params.find(p => p.name === slot.lon);
     const nameParam = params.find(p => p.name === slot.name);
+    const timeParam = params.find(p => p.name === slot.time);
 
     // リセットせず直接上書き（アイコンが消えない）
     if (latParam) await latParam.changeValueAsync(user.lat);
     if (lonParam) await lonParam.changeValueAsync(user.lon);
     if (nameParam) await nameParam.changeValueAsync(user.name);
+    if (timeParam) await timeParam.changeValueAsync(new Date(user.timestamp).toLocaleTimeString());
 
     console.log(`Slot${slotIndex + 1} ${user.name}: lat=${user.lat}, lon=${user.lon}`);
   }
